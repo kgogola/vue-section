@@ -13,8 +13,10 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "es6-promise": "^4.2.4",
     "eslint": "^4.19.1",
     "eslint-plugin-jest": "^21.15.0",
+    "isomorphic-fetch": "^2.2.1",
     "nuxt": "^1.0.0"
   },
   "devDependencies": {
