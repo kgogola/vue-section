@@ -3,7 +3,7 @@
       <h1>Książki</h1>
   <div class="books-container">
         <Book
-            v-for="book in books"
+            v-for="book in $store.state.books"
             :key="book.id"
             :img="book.img"
             :title="book.title"
@@ -17,32 +17,37 @@
 
 <script>
 import Book from '@/components/Book'
+import 'isomorphic-fetch'
 export default {
   components: {
     Book
   },
-  asyncData () {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve({
-          books: [
-            {
-              id: '1',
-              title: 'Wieża Jaskółki',
-              description: 'Super mega książka',
-              img: 'https://i.ytimg.com/vi/PgKISfwfbBw/maxresdefault.jpg'
-            },
-            {
-              id: '2',
-              title: 'Miecz przeznaczenia',
-              description: 'Super mega książka no mówię Ci Heniek',
-              img:
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7QrIDjxxaX9wrPevWBooVqRVV5Kj2iMEID5zfr3D1a4_orDYD'
-            }
-          ]
+  methods: {
+    transform (bookItem, index) {
+      const book = bookItem.volumeInfo
+      return {
+        id: index + 1,
+        title: book.title,
+        description: book.description,
+        img: book.imageLinks ? book.imageLinks.thumbnail : 'http://books.google.com/books/content?id=PXa2bby0oQ0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+        author: book.authors ? book.authors[0] : 'Unknown'
+      }
+    },
+    getBooks () {
+      const query = 'knit'
+      return fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(query)}`)
+        .then((response) => {
+          return response.json()
         })
-      }, 1500)
-    })
+        .then((result) => {
+          if (this.$store.state.books.length === 0) {
+            this.$store.state.books = result.items ? result.items.map(this.transform) : []
+          }
+        })
+    }
+  },
+  created () {
+    this.getBooks()
   }
 }
 </script>
