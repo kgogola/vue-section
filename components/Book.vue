@@ -1,5 +1,5 @@
 <template>
-    <nuxt-link :to="'/books/' + id">
+    <nuxt-link :to="'/books/' +id">
         <div class="single-book">
             <h2>{{title}}</h2>
             <p>{{author}}</p>

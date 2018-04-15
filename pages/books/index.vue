@@ -1,9 +1,10 @@
 <template>
 <div>
       <h1>Książki</h1>
+      <input type="text" v-model="search" placeholder="search books">
   <div class="books-container">
         <Book
-            v-for="book in $store.state.books"
+            v-for= "book in booksFiltered"
             :key="book.id"
             :img="book.img"
             :title="book.title"
@@ -22,6 +23,17 @@ export default {
   components: {
     Book
   },
+  data () {
+    return {
+      search: ''
+    }
+  },
+  computed: {
+    booksFiltered: function () {
+      return this.$store.state.books.filter((book) => {
+        return book.title.match(this.search)
+      })
+    }},
   methods: {
     transform (bookItem, index) {
       const book = bookItem.volumeInfo
@@ -57,4 +69,3 @@ export default {
   display: flex;
 }
 </style>
-
