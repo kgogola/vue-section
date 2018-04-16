@@ -30,10 +30,9 @@ export default {
   },
   computed: {
     booksFiltered: function () {
-      return this.$store.state.books.filter((book) => {
-        return book.title.match(this.search)
-      })
-    }},
+      return this.$store.state.books.filter(book => book.title.match(this.search))
+    }
+  },
   methods: {
     transform (bookItem, index) {
       const book = bookItem.volumeInfo

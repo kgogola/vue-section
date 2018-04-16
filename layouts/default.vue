@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import pagenavigation from '@/components/page-navigation.vue'
+import pagenavigation from '@/components/Navigation.vue'
 
 export default {
   components: {
