@@ -1,0 +1,48 @@
+[33mcommit dab5c995c609fde1fe42152ccfaeb27a3f63aa51[m[33m ([m[1;36mHEAD -> [m[1;32mKamil2[m[33m, [m[1;31morigin/Kamil2[m[33m)[m
+Author: kgogola <32526127+kgogola@users.noreply.github.com>
+Date:   Mon Apr 16 02:23:26 2018 +0200
+
+    changed
+
+[33mcommit 22f1c628af0ff9bb2f5bd563bb6c79919cf5e9db[m
+Author: kgogola <32526127+kgogola@users.noreply.github.com>
+Date:   Sun Apr 15 19:49:04 2018 +0200
+
+    Update Book.vue
+
+[33mcommit 6ddd69a10b989d2ee202c14dd4e8bc35deb25c5b[m
+Author: kgogola <32526127+kgogola@users.noreply.github.com>
+Date:   Sun Apr 15 19:24:22 2018 +0200
+
+    .
+    
+    .
+
+[33mcommit 9db35af39777b9dd181bb3ff7da890274936b4e8[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: 908297b 7834063
+Author: Karol Wójcik <kwcharllie379@gmail.com>
+Date:   Fri Apr 13 13:32:16 2018 +0200
+
+    Merge pull request #3 from LaYatiX/feature/books-fetching
+    
+    Add books fetching from Google API
+
+[33mcommit 783406383bec28444ec2fffa7c951be35170fbc0[m
+Author: Geecek <gicalamaciej@gmail.com>
+Date:   Thu Apr 12 10:07:28 2018 +0200
+
+    Add books fetching from Google API
+
+[33mcommit 908297bceb276e0faa36533fb0719e60fc9a8b82[m
+Author: LaYatiX <gpiwosz@gmail.com>
+Date:   Wed Apr 11 20:27:17 2018 +0200
+
+    Initial commit
+    
+    fix code style after adding eslint
+
+[33mcommit 9e3a9136f12fd98e068f4559b038acde4010b03e[m
+Author: LaYatiX <gpiwosz@gmail.com>
+Date:   Tue Mar 20 19:10:52 2018 +0100
+
+    Initial commit
