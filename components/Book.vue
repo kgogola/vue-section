@@ -1,6 +1,6 @@
 <template>
     <div class="single-book">
-      <button class="fav-button" @click="favouritesEngine"></button>
+      <button class="fav-button" @click="addFavourite"></button>
       <nuxt-link :to="'/books/' + id">
             <h2>{{title}}</h2>
             <p>{{author}}</p>
@@ -14,32 +14,13 @@
 export default {
   data () {
     return {
-      isFavourite: false
     }
   },
-  props: ['title', 'author', 'description', 'img', 'id', 'nrFav'],
+  props: ['title', 'author', 'description', 'img', 'id', 'isFav'],
   methods: {
     addFavourite () {
-      this.$store.state.favouritesBooks.push({
-        id: this.id,
-        title: this.title,
-        description: this.description,
-        img: this.imageLinks ? this.imageLinks.thumbnail : 'http://books.google.com/books/content?id=PXa2bby0oQ0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-        author: this.authors ? this.authors[0] : 'Unknown',
-        nrFav: this.nrFav // nrFav is needly to deleting books from favourites list
-      })
-    },
-    deleteFavourite () {
-      this.$delete(this.$store.state.favouritesBooks, this.nrFav)
-    },
-    favouritesEngine () {
-      for (var i = 0; i < this.$store.state.favouritesBooks.length; i++) {
-        if (this.title === this.$store.state.favouritesBooks[i].title) {
-          this.deleteFavourite()
-          return
-        }
-      }
-      this.addFavourite()
+      this.$store.state.books[this.id - 1].isFav = (this.$store.state.books[this.id - 1].isFav === 1) ? 0 : 1
+      console.log(this.$store.state.books[this.id - 1])
     }
   }
 }

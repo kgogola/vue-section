@@ -1,15 +1,15 @@
 <template>
 <div>
-      <h1>Książki</h1>
+      <h1>Ulubione książki</h1>
   <div class="books-container"> 
         <Book
-            v-for="(book,index) in $store.state.favouritesBooks"
+            v-for="book in this.$store.state.books" v-if= book.isFav
             :key="book.id"
             :img="book.img"
             :title="book.title"
             :description="book.description"
             :id="book.id"
-            :nrFav="index" 
+            :isFav="book.isFav"
         />
   </div>
 </div>

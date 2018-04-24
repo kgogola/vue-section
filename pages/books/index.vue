@@ -9,6 +9,7 @@
             :title="book.title"
             :description="book.description"
             :id="book.id"
+            
         />
   </div>
 </div>
@@ -22,6 +23,11 @@ export default {
   components: {
     Book
   },
+  data: function () {
+    return {
+
+    }
+  },
   methods: {
     transform (bookItem, index) {
       const book = bookItem.volumeInfo
@@ -30,7 +36,8 @@ export default {
         title: book.title,
         description: book.description,
         img: book.imageLinks ? book.imageLinks.thumbnail : 'http://books.google.com/books/content?id=PXa2bby0oQ0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-        author: book.authors ? book.authors[0] : 'Unknown'
+        author: book.authors ? book.authors[0] : 'Unknown',
+        isFav: false
       }
     },
     getBooks () {
